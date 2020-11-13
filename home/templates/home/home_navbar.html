@@ -29,20 +29,7 @@
     </div>
 </nav-->
 
-<script>
-    AOS.init({
-        once: true
-    });
 
-    $('#navbar, ul, li, a').on('click', function(event){
-       var id = $(this).attr("href"), topSpace = 30;
-
-       $('html, body').animate({
-           scrollTop: $(id).offset().top - topSpace
-       }, 800);
-       event.preventDefault();
-    });
-</script>
 <style>
 
 @media screen and (min-width: 601px) {

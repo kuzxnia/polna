@@ -1,23 +1,27 @@
 {% load wagtailimages_tags %} 
 {% load static %} 
 
-<div class='content custom-content' data-aos="fade-in" >
-    <div class="row no-gutters custom-row bg align-items-center justify-content-md-center"
-         style="background-image: url({{ MEDIA_URL }}/media/sekcja_5/1.jpg)" 
+<div class="content custom-content" data-aos="fade-in">
+    <div class="row no-gutters custom-row bg justify-content-md-center"
+         style="background-color: black; background-image: url({{ MEDIA_URL }}/media/sekcja_5/1.jpg)" 
     >
-        <div class="align-items-center justify-content-md-center" style="color: white">
-            <div class="col">
-              One of three columns
-            </div>
-            <div class="col">
-              One of three columns
-            </div>
-            <div class="col">
-              One of three columns
+        <div class="col-12 align-self-center"> </div>
+        <div class="col-12 align-self-center justify-content-md-center" style="color: white; text-align: center;">
+              <img class="nav-img" src="/media/logo_biale.png" alt="" data-aos="zoom-in">
+        </div>
+        <div class="col-12 align-self-end justify-content-md-center" style="color: white; text-align: center;">
+        </div>
+        <div class="scroll-down col-12 align-self-end pb-5" style="text-align: center;">
+            <div data-aos="fade-up" data-aos-easing="ease" data-aos-delay="800">
+            <strong style='color: white;'>SCROLL DOWN</strong>
+            </br>
+            <i class="scroll-down fa fa-chevron-down" ></i>
             </div>
         </div>
 
    </div>
+
+  <div class="w-100 pb-5"></div>
 
   <div class="row custom-row no-gutters" id="bio">
       <div class="col-6 col-sm-6">
@@ -135,20 +139,31 @@
   </div>
 </div>
 <script>
+    AOS.init({
+        once: true
+    });
+    $('#navbar, ul, li, a').on('click', function(event){
+       var id = $(this).attr("href"), topSpace = 30;
+
+       $('html, body').animate({
+           scrollTop: $(id).offset().top - topSpace
+       }, 800);
+       event.preventDefault();
+    });
     var CaptchaCallback = function() {
         if ($('#recaptcha').length) {
             grecaptcha.render('recaptcha', {'sitekey' : '6Lc4yOEZAAAAAIRCUH0OI6J14iqmq-h0L7hVcR0b'});
         }
     };
-    $(document).ready(function() {
-        $('.slider').slick({
+    $(".slider")
+        .not('.slick-initialized')
+        .slick({
             infinite: true,
             slidesToShow: 6,
             slidesToScroll: 3,
             arrows: false,
             autoplay: true
         });
-    });
 </script>
 
 <style>
@@ -163,7 +178,7 @@ img {
     height: 100vh;
 }
 .custom-content {
-    padding: 0vw;
+    padding: 0vw;     
     height: 100vh;
 }
 .selection_1 {
@@ -173,19 +188,18 @@ img {
     padding-left: 0.1vw;
     padding-right: 0.1vw;
 }
-
 .grandchild {
     float: left;
 }
 .clearboth {
     clear: both;
 }
+.nav-img {
+    width: 20vw;
+    height: auto;
+}
 
 @media screen and (min-width: 601px) {
-  .top-img {
-      padding-left: 1vw;
-      padding-right: 1vw;
-  }
   .text-padding {
       padding-top: 7%;
       padding-left: 7% !important;
@@ -195,10 +209,6 @@ img {
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
-  .top-img {
-      padding-left: 1%;
-      padding-right: 1%;
-  }
   .text-padding {
       padding-top: 5%;
       padding-left: 7% !important;
@@ -256,6 +266,21 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
 }
+/* scroll down */
+.scroll-down {
+    color: #FF4081;
+    animation: 2s pulse infinite;
+}
 
-
+@keyframes pulse{
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 </style>
