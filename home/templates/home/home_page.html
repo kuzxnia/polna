@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+{% endblock extra_css %}
+
+
+{% block content %}
+
+{% include "home/home_navbar.html" %}
+{% include "home/home_content.html" %}
+{% include "home/home_footer.html" %}
+
+{% endblock content %}

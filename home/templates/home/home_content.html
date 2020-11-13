@@ -1,0 +1,254 @@
+{% load wagtailimages_tags %} 
+{% load static %} 
+
+<div class='content custom-content'>
+  <div class="row no-gutters selection_1" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="400">
+    <div class="col-3 col-md-3 col-sm-3">
+        <img class="img-responsive" src="/media/sekcja_1/1.jpg" alt="" />
+    </div>
+    <div class="col-3 col-md-3 col-sm-3">
+        <img class="img-responsive" src="/media/sekcja_1/2.jpg" alt="" />
+    </div>
+    <div class="col-3 col-md-3 col-sm-3">
+        <img class="img-responsive" src="/media/sekcja_1/3.jpg" alt="" />
+    </div>
+    <div class="col-3 col-md-3 col-sm-3">
+        <img class="img-responsive" src="/media/sekcja_1/4.jpg" alt="" />
+    </div>
+  </div>
+
+  <div class="row custom-row no-gutters" id="bio">
+      <div class="col-6 col-sm-6">
+            <img src="/media/sekcja_2/1.jpg" alt="" data-aos="fade-left" />
+      </div>
+      <div class="col-6 col-sm-6 text-padding">
+            piwnica na polnej to moje miejsce na ziemi
+            </br>
+            początkowo miało być małym punktem na artystycznej 
+            </br>
+            mapie Warszawy. Dzisiaj jest miejscem, gdzie można
+            </br>
+            zobaczyć prace ciekawych artystów i razem ze mną 
+            </br>
+            stworzyć magiczne portrety, które będą pamiątką
+            </br>
+            na całe życie.
+            </br>
+            </br>
+            pasjonatka pięknych wnętrz i klasycznego desingu
+            </br>
+            absolwentka histori sztuki, z zawodu marketingowiec 
+            </br>
+            a z zamiłowania fotograf i grafik
+            </br>
+            zakorzeniona w tradycji klasycznej, w pracy 
+            </br>
+            twórczej wykorzystuję swoją wrażliwość
+            </br>
+            estetyczną, aby uchwycić każdy portret 
+            </br>
+            w ponadczasowy obraz
+      </div>
+
+      <div class="w-100"></div>
+
+      <div class="col-6 col-sm-6 text-padding" id="studio">
+            Sesje realizujemy w studio (20 m2) oraz mieszkaniu 
+            </br>
+            o chrakterze vintage w klimatycznej kamienicy
+            </br>
+            w centrum Warszawy
+            </br>
+            </br>
+            Nie masz własnego studia?
+            </br>
+            </br>
+           Cena za godzinę - 100 zł
+            </br>
+            </br>
+              w ramach tej kwoty otrzymasz:
+            </br>
+            - dostęp do studia fotograficznego 20 m2
+            </br>
+              w centrum Warszawy
+            </br>
+            - wyposażenie studia: softboxy z uchwytami
+            </br>
+              do lamp błyskowych, blendy. stoisko do
+            </br>
+              makijażu
+      </div>
+      <div class="col-6 col-sm-6" data-aos="fade-right">
+        <img src="/media/sekcja_3/1.jpg" alt=""/>
+      </div>
+
+      <div class="w-100 pb-5"></div>
+
+      <div class="slider col-12 col-sm-12" id="galery">
+          {% for i in '012345678912345678'|make_list %}
+              <div>
+                <div class="container">
+                    <a href="https://www.w3schools.com" target="_blank">
+                      <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
+                      <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
+                    </a>
+                </div>
+                <div class="container">
+                    <a href="https://www.w3schools.com" target="_blank">
+                      <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
+                      <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
+                    </a>
+                </div>
+            </div>
+          {% endfor %}
+      </div>
+
+      <div class="w-100 pb-5"></div>
+
+      <div class="col-md-4 col-sm-4 mx-auto" id="contact">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Adres email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@gmail.com">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Temat</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Wiadomość</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+              <div id="recaptcha"><div>
+          </div>
+          </br>
+
+          <button type="submit" class="btn btn-primary">Wyślij</button>
+        </form>
+      </div>
+
+  </div>
+</div>
+<script>
+    var CaptchaCallback = function() {
+        if ($('#recaptcha').length) {
+            grecaptcha.render('recaptcha', {'sitekey' : '6Lc4yOEZAAAAAIRCUH0OI6J14iqmq-h0L7hVcR0b'});
+        }
+    };
+    $(document).ready(function() {
+        $('.slider').slick({
+            infinite: true,
+            slidesToShow: 6,
+            slidesToScroll: 3,
+            arrows: false,
+            autoplay: true
+        });
+    });
+</script>
+
+<style>
+body {
+    font-size: 1vw;
+}
+img {
+    object-fit: cover;
+    max-width: 100%;
+}
+.custom-row {
+    height: 100vh;
+}
+.custom-content {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    height: 100vh;
+}
+.selection_1 {
+    padding-bottom: 10vw;
+}
+.selection_1 img {
+    padding-left: 0.1vw;
+    padding-right: 0.1vw;
+}
+
+.grandchild {
+    float: left;
+}
+.clearboth {
+    clear: both;
+}
+
+@media screen and (min-width: 601px) {
+  .top-img {
+      padding-left: 1vw;
+      padding-right: 1vw;
+  }
+  .text-padding {
+      padding-top: 7%;
+      padding-left: 7% !important;
+      padding-rigth: 7% !important;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .top-img {
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+  .text-padding {
+      padding-top: 5%;
+      padding-left: 7% !important;
+      padding-rigth: 7% !important;
+  }
+  .custom-content {
+      padding: 1%;
+      padding-left: 3%;
+      padding-right: 3%;
+      height: 100vh;
+  }
+}
+/* image instagram hover */
+.container {
+  position: relative;
+  padding: 0%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.7;
+}
+
+.container:hover .middle {
+  opacity: 0.5;
+}
+
+.text {
+  color: black;
+  font-size: 2em;
+}
+
+</style>
