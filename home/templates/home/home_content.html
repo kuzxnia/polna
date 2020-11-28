@@ -1,21 +1,19 @@
-{% load wagtailimages_tags %} 
+{% load wagtailimages_tags wagtailcore_tags %} 
 {% load static %} 
 
-<div class="content custom-content" data-aos="fade-in">
+<div class="content custom-content">
     <div class="row no-gutters custom-row bg justify-content-md-center"
          style="background-color: black; background-image: url({{ MEDIA_URL }}/media/sekcja_5/1.jpg)" 
+         data-aos="fade-in" data-aos-duration="1500" 
     >
-        <div class="col-12 align-self-center"> </div>
         <div class="col-12 align-self-center justify-content-md-center" style="color: white; text-align: center;">
               <img class="nav-img" src="/media/logo_biale.png" alt="" data-aos="zoom-in">
         </div>
-        <div class="col-12 align-self-end justify-content-md-center" style="color: white; text-align: center;">
-        </div>
-        <div class="scroll-down col-12 align-self-end pb-5" style="text-align: center;">
-            <div data-aos="fade-up" data-aos-easing="ease" data-aos-delay="800">
-            <strong style='color: white;'>SCROLL DOWN</strong>
-            </br>
-            <i class="scroll-down fa fa-chevron-down" ></i>
+        <div class="col-12 align-self-center pb-5" style="text-align: center;" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="400">
+            <div class="scroll-down">
+                <strong style='color: white;'>SCROLL DOWN</strong>
+                </br>
+                <i class="scroll-down fa fa-chevron-down" ></i>
             </div>
         </div>
 
@@ -23,95 +21,42 @@
 
   <div class="w-100 pb-5"></div>
 
-  <div class="row custom-row no-gutters" id="bio">
-      <div class="col-6 col-sm-6">
-            <img src="/media/sekcja_2/1.jpg" alt="" data-aos="fade-left" />
-      </div>
-      <div class="col-6 col-sm-6 text-padding">
-            piwnica na polnej to moje miejsce na ziemi
-            </br>
-            początkowo miało być małym punktem na artystycznej 
-            </br>
-            mapie Warszawy. Dzisiaj jest miejscem, gdzie można
-            </br>
-            zobaczyć prace ciekawych artystów i razem ze mną 
-            </br>
-            stworzyć magiczne portrety, które będą pamiątką
-            </br>
-            na całe życie.
-            </br>
-            </br>
-            pasjonatka pięknych wnętrz i klasycznego desingu
-            </br>
-            absolwentka histori sztuki, z zawodu marketingowiec 
-            </br>
-            a z zamiłowania fotograf i grafik
-            </br>
-            zakorzeniona w tradycji klasycznej, w pracy 
-            </br>
-            twórczej wykorzystuję swoją wrażliwość
-            </br>
-            estetyczną, aby uchwycić każdy portret 
-            </br>
-            w ponadczasowy obraz
-      </div>
-
-      <div class="w-100"></div>
-
-      <div class="col-6 col-sm-6 text-padding" id="studio">
-            Sesje realizujemy w studio (20 m2) oraz mieszkaniu 
-            </br>
-            o chrakterze vintage w klimatycznej kamienicy
-            </br>
-            w centrum Warszawy
-            </br>
-            </br>
-            Nie masz własnego studia?
-            </br>
-            </br>
-           Cena za godzinę - 100 zł
-            </br>
-            </br>
-              w ramach tej kwoty otrzymasz:
-            </br>
-            - dostęp do studia fotograficznego 20 m2
-            </br>
-              w centrum Warszawy
-            </br>
-            - wyposażenie studia: softboxy z uchwytami
-            </br>
-              do lamp błyskowych, blendy. stoisko do
-            </br>
-              makijażu
-      </div>
-      <div class="col-6 col-sm-6" data-aos="fade-right">
-        <img src="/media/sekcja_3/1.jpg" alt=""/>
-      </div>
-
-      <div class="w-100 pb-5"></div>
-
-      <div class="slider col-12 col-sm-12" id="galery">
+  <div class="row custom-row" id="bio" data-aos="fade-in">
+      <div class="slider col-12 col-md-12 col-lg-12 col-sm-12 order-1" id="galery">
           {% for i in '012345678912345678'|make_list %}
-              <div>
-                <div class="container">
-                    <a href="https://www.w3schools.com" target="_blank">
-                      <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
-                      <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
-                    </a>
-                </div>
-                <div class="container">
-                    <a href="https://www.w3schools.com" target="_blank">
-                      <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
-                      <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
-                    </a>
-                </div>
+            <div class="container">
+                <a href="https://www.w3schools.com" target="_blank">
+                  <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
+                  <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
+                </a>
             </div>
           {% endfor %}
       </div>
+  </div>
 
-      <div class="w-100 pb-5"></div>
+  <div class="row custom-row no-gutters" id="bio" data-aos="fade-in">
+      <div class="col-md-6 col-12 order-4">
+            <img src="/media/sekcja_2/1.jpg" alt="" data-aos="fade-left" />
+      </div>
+      <div class="col-md-6 col-12 order-3 text-padding">
+          {{ page.selection_1_text|richtext }}
+      </div>
 
-      <div class="col-md-4 col-sm-4 mx-auto" id="contact">
+      <div class="w-100 order-5"></div>
+
+
+      <div class="col-md-6 col-12 order-6 order-md-7 text-padding" id="studio">
+          {{ page.selection_2_text|richtext }}
+      </div>
+      <div class="col-md-6 col-12 order-7 order-md-6" data-aos="fade-right">
+        <img src="/media/sekcja_3/1.jpg" alt=""/>
+      </div>
+
+      <div class="w-100 pb-5 order-8"></div>
+
+
+      
+      <div class="col-md-4 col-sm-4 mx-auto order-9" id="contact">
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Adres email</label>
@@ -159,17 +104,20 @@
         .not('.slick-initialized')
         .slick({
             infinite: true,
-            slidesToShow: 6,
-            slidesToScroll: 3,
+            slidesToShow: 1,
+            slidesToScroll: 1,
             arrows: false,
             autoplay: true
         });
+    $(".scroll-down").on('click', function(event){
+        $('html, body').animate({
+           scrollTop: $(window).height()
+       }, 1200);
+       event.preventDefault();
+    });
 </script>
 
 <style>
-body {
-    font-size: 1vw;
-}
 img {
     object-fit: cover;
     max-width: 100%;
@@ -199,20 +147,16 @@ img {
     height: auto;
 }
 
-@media screen and (min-width: 601px) {
-  .text-padding {
-      padding-top: 7%;
-      padding-left: 7% !important;
-      padding-rigth: 7% !important;
-  }
-}
-
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
+@media only screen and (max-device-width: 480px) {
+   /* styles for mobile browsers smaller than 480px; (iPhone) */
+    body {
+        font-size: 3vw;
+    }
   .text-padding {
       padding-top: 5%;
       padding-left: 7% !important;
       padding-rigth: 7% !important;
+      padding-bottom: 7%;
   }
   .custom-content {
       padding: 1%;
@@ -220,6 +164,56 @@ img {
       padding-right: 3%;
       height: 100vh;
   }
+}
+@media only screen and (min-width: 960px) {
+    /* styles for browsers larger than 960px; */
+    body {
+        font-size: 1vw;
+    }
+  .text-padding {
+      padding-top: 7%;
+      padding-left: 7% !important;
+      padding-rigth: 7% !important;
+      padding-bottom: 7%;
+  }
+  .custom-content {
+      padding: 1%;
+      padding-left: 3%;
+      padding-right: 3%;
+      height: 100vh;
+  }
+
+}
+@media only screen and (min-width: 1440px) {
+    /* styles for browsers larger than 1440px; */
+    body {
+        font-size: 1vw;
+    }
+  .text-padding {
+      padding-top: 7%;
+      padding-left: 7% !important;
+      padding-rigth: 7% !important;
+      padding-bottom: 7%;
+  }
+  .custom-content {
+      padding: 1%;
+      padding-left: 3%;
+      padding-right: 3%;
+      height: 100vh;
+  }
+}
+@media only screen and (min-width: 2000px) {
+    /* for sumo sized (mac) screens */
+    body {
+        font-size: 1vw;
+    }
+  .text-padding {
+      padding-top: 7%;
+      padding-left: 7% !important;
+      padding-rigth: 7% !important;
+      padding-bottom: 7%;
+  }
+
 }
 /* image instagram hover */
 .container {
@@ -254,10 +248,7 @@ img {
   text-align: center;
 }
 
-.text {
-  color: black;
-  font-size: 2em;
-}
+/* .text { color: black; font-size: 2em; } */
 
 /* img backgroud */
 .bg {
