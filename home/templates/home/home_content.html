@@ -1,9 +1,10 @@
 {% load wagtailimages_tags wagtailcore_tags %} 
-{% load static %} 
+{% load static %}
+{% load cloudinary %}
 
 <div class="content custom-content">
     <div class="row no-gutters custom-row bg justify-content-md-center"
-         style="background-color: black; background-image: url({{ MEDIA_URL }}/media/sekcja_5/1.jpg)" 
+         style="background-color: #000000; background-image: url('{% cloudinary_url page.title_image %}')"
          data-aos="fade-in" data-aos-duration="1500" 
     >
         <div class="col-12 align-self-center justify-content-md-center" style="color: white; text-align: center;">
@@ -11,7 +12,7 @@
         </div>
         <div class="col-12 align-self-center pb-5" style="text-align: center;" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="400">
             <div class="scroll-down">
-                <strong style='color: white;'>SCROLL DOWN</strong>
+                <strong style='color: white;'>WIĘCEJ</strong>
                 </br>
                 <i class="scroll-down fa fa-chevron-down" ></i>
             </div>
@@ -34,9 +35,9 @@
       </div>
   </div>
 
-  <div class="row custom-row no-gutters" id="bio" data-aos="fade-in">
+  <div class="row custom-row no-gutters pt-5" id="bio" data-aos="fade-in">
       <div class="col-md-6 col-12 order-4">
-            <img src="/media/sekcja_2/1.jpg" alt="" data-aos="fade-left" />
+            <img src="{% cloudinary_url page.selection_1_image %}" style="width: 100%;height: 100%" data-aos="fade-left" />
       </div>
       <div class="col-md-6 col-12 order-3 text-padding">
           {{ page.selection_1_text|richtext }}
@@ -49,57 +50,31 @@
           {{ page.selection_2_text|richtext }}
       </div>
       <div class="col-md-6 col-12 order-7 order-md-6" data-aos="fade-right">
-        <img src="/media/sekcja_3/1.jpg" alt=""/>
+          <img src="{% cloudinary_url page.selection_2_image %}" style="width: 100%;height: 100%" />
       </div>
 
       <div class="w-100 pb-5 order-8"></div>
 
-
-      
       <div class="col-md-4 col-sm-4 mx-auto order-9" id="contact">
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Adres email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@gmail.com">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adres email">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Temat</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Temat">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Wiadomość</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-
-          <div class="form-group">
-              <div id="recaptcha"><div>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Wiadomość"></textarea>
           </div>
           </br>
-
           <button type="submit" class="btn btn-primary">Wyślij</button>
         </form>
       </div>
-
   </div>
 </div>
 <script>
-    AOS.init({
-        once: true
-    });
-    $('#navbar, ul, li, a').on('click', function(event){
-       var id = $(this).attr("href"), topSpace = 30;
+    AOS.init({once: true});
 
-       $('html, body').animate({
-           scrollTop: $(id).offset().top - topSpace
-       }, 800);
-       event.preventDefault();
-    });
-    var CaptchaCallback = function() {
-        if ($('#recaptcha').length) {
-            grecaptcha.render('recaptcha', {'sitekey' : '6Lc4yOEZAAAAAIRCUH0OI6J14iqmq-h0L7hVcR0b'});
-        }
-    };
     $(".slider")
         .not('.slick-initialized')
         .slick({
@@ -111,13 +86,16 @@
         });
     $(".scroll-down").on('click', function(event){
         $('html, body').animate({
-           scrollTop: $(window).height()
+           scrollTop: $(window).height() + 80
        }, 1200);
        event.preventDefault();
     });
 </script>
 
 <style>
+.slider, .slick-list {
+    height: 100%;
+}
 img {
     object-fit: cover;
     max-width: 100%;
@@ -207,12 +185,18 @@ img {
     body {
         font-size: 1vw;
     }
-  .text-padding {
-      padding-top: 7%;
-      padding-left: 7% !important;
-      padding-rigth: 7% !important;
-      padding-bottom: 7%;
-  }
+    .text-padding {
+        padding-top: 7%;
+        padding-left: 7% !important;
+        padding-rigth: 7% !important;
+        padding-bottom: 7%;
+    }
+    .custom-content {
+        padding: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+        height: 100vh;
+    }
 
 }
 /* image instagram hover */
