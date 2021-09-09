@@ -14,6 +14,22 @@ ALLOWED_HOSTS = ['*']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'polna',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
+    }
+}
+
+CLOUDINARY = {
+  'cloud_name': 'kuzxnia',  
+  'api_key': '367931752431263',  
+  'api_secret': 'dSsQ9vAJ-RC5kOdNErRGHRFlh44',  
+}
 
 try:
     from .local import *

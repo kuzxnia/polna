@@ -20,20 +20,20 @@
 
    </div>
 
-  <div class="w-100 pb-5"></div>
+    <div class="w-100 pb-5"></div>
 
-  <div class="row custom-row" id="bio" data-aos="fade-in">
-      <div class="slider col-12 col-md-12 col-lg-12 col-sm-12 order-1" id="galery">
-          {% for i in '012345678912345678'|make_list %}
-            <div class="container">
-                <a href="https://www.w3schools.com" target="_blank">
-                  <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
-                  <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
-                </a>
-            </div>
-          {% endfor %}
-      </div>
-  </div>
+    <div class="row custom-row" id="bio" data-aos="fade-in">
+        <div class="slider col-12 col-md-12 col-lg-12 col-sm-12 order-1" id="galery">
+            {% for i in '012345678912345678'|make_list %}
+                <div class="container">
+                    <a href="https://www.w3schools.com" target="_blank">
+                        <img src="/media/sekcja_4/{{ forloop.counter }}.jpg" class="image">
+                        <div class="middle"><div class="text"><i class="fa fa-instagram"></i></div></div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
   <div class="row custom-row no-gutters pt-5" id="bio" data-aos="fade-in">
       <div class="col-md-6 col-12 order-4">
@@ -56,8 +56,9 @@
       <div class="w-100 pb-5 order-8"></div>
 
       <div class="col-md-4 col-sm-4 mx-auto order-9" id="contact">
-        <form>
+        <form method="POST">
           <div class="form-group">
+              {% csrf_token %}
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adres email">
           </div>
           <div class="form-group">
@@ -79,7 +80,7 @@
         .not('.slick-initialized')
         .slick({
             infinite: true,
-            slidesToShow: 1,
+            slidesToShow: 4,
             slidesToScroll: 1,
             arrows: false,
             autoplay: true
@@ -137,9 +138,9 @@ img {
       padding-bottom: 7%;
   }
   .custom-content {
-      padding: 1%;
-      padding-left: 3%;
-      padding-right: 3%;
+      padding: 0%;
+      padding-left: 0%;
+      padding-right: 0%;
       height: 100vh;
   }
 }
